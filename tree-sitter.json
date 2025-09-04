@@ -1,0 +1,38 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "json5",
+      "camelcase": "Json5",
+      "title": "JSON5 grammar for tree-sitter",
+      "scope": "source.json5",
+      "file-types": [
+        "json5"
+      ],
+      "injection-regex": "^json5$",
+      "class-name": "TreeSitterJson5"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.1",
+    "license": "MIT",
+    "description": "JSON5 grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Joakker"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/jakassebaum/tree-sitter-json5"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

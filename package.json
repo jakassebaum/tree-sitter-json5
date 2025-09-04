@@ -1,21 +1,53 @@
 {
   "name": "tree-sitter-json5",
-  "version": "0.1.0",
-  "description": "Tree-sitter grammar for json5",
-  "scripts": {
-    "compile": "npx tsc && npx tree-sitter generate",
-    "test": "npm run compile && npx tree-sitter test",
-    "parse": "npx tree-sitter parse"
-  },
-  "keywords": [],
-  "author": "",
+  "version": "0.1.1",
+  "description": "JSON5 grammar for tree-sitter (Node.js v24+ compatible)",
+  "repository": "https://github.com/jakassebaum/tree-sitter-json5",
   "license": "MIT",
+  "author": "Joakker",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "json5"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
+  ],
+  "dependencies": {
+    "node-addon-api": "^8.5.0",
+    "node-gyp-build": "^4.8.4"
+  },
   "devDependencies": {
+    "prebuildify": "^6.0.1",
+    "tree-sitter": "^0.25.0",
+    "tree-sitter-cli": "^0.25.8",
     "typescript": "^5.4.5"
   },
-  "dependencies": {
-    "nan": "^2.15.0",
-    "tree-sitter-cli": "^0.20.8"
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
   },
-  "main": "bindings/node"
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "generate": "tree-sitter generate",
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test": "tree-sitter generate && time tree-sitter test && node --test bindings/node/*_test.js",
+    "testquick": "time tree-sitter test",
+    "update-test": "tree-sitter test --update"
+  }
 }
