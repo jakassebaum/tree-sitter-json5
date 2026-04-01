@@ -31,6 +31,10 @@
           ],
         }],
       ],
+      "cflags_cc": ["-std=c++20"],
+      "xcode_settings": {
+        "CLANG_CXX_LANGUAGE_STANDARD": "c++20"
+      },
       "defines": [
         "NAPI_DISABLE_CPP_EXCEPTIONS"
       ]
